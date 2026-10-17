@@ -1,0 +1,246 @@
+\documentclass[12pt]{report}
+%feel free to delete or add packages
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algorithmicx}
+\usepackage{amsmath}
+\usepackage{relsize}
+%binding offset it needed
+\usepackage[a4paper]{geometry}
+%\usepackage[a4paper, twoside,bindingoffset=6mm]{geometry}
+\usepackage{comment}
+\usepackage{lmodern}
+\usepackage{cite}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{ragged2e}
+\usepackage[section]{placeins}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{lipsum}
+\usepackage{appendix}
+\usepackage{relsize}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{spverbatim}
+\usepackage{makecell}
+%set depth based on how deeply you want to see the sections/subsections/subsubsections, etc. in the toc
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\usepackage{booktabs}
+\usepackage[fontsize=12pt]{scrextend}
+
+%the space before figures and tables
+\setlength\intextsep{24pt}
+
+%count figures, tables, and equations continuously, regardless of chapter
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
+
+%call the bibliography "references"
+\renewcommand{\bibname}{References}
+
+%prevent LaTeX from hyphenating
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+\titleformat{\chapter}[display]   
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\huge}   
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+\geometry{a4paper} 
+
+%removing "Chapter x" at chapters, and adjust spacing
+\makeatletter
+\def\@makechapterhead#1{
+  
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \Huge\bfseries \thechapter.\space%
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 20\p@
+  }}
+\makeatother 
+
+%line spacing
+\renewcommand{\baselinestretch}{1.3} 
+
+\newcommand\setrow[1]{\gdef\rowmac{#1}#1\ignorespaces}
+\newcommand\clearrow{\global\let\rowmac\relax}
+\clearrow
+
+\begin{document}
+
+\begin{titlepage}
+   \begin{center}
+       \vspace*{5cm}
+
+       \textbf{\Huge{TITLE}}
+       \vspace{3cm}
+
+       \Large{Name}\\{Student ID number}
+
+       \vfill
+            
+       Supervisor:
+            
+       \vspace{1cm}
+            
+       College of Information Science and Engineering\\
+       Ritsumeikan University\\
+       Date
+            
+   \end{center}
+\end{titlepage}
+
+%first few pages are in Roman numbers
+\pagenumbering{roman} 
+\chapter*{Abstract}
+This part is to provide a summary of the thesis (100 - 200 words).
+\tableofcontents
+%\printunsrtglossary[type=symbols,style=long,title={List of Symbols}]
+\let\origaddvspace\addvspace
+\renewcommand{\addvspace}[1]{}
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+\renewcommand{\addvspace}[1]{\origaddvspace{#1}}
+
+\chapter{Introduction}
+\pagenumbering{arabic}
+The introduction usually gives a context for the presented study, and it normally includes a mini survey of the related literature, properly cited and included in the “References” section. It should also contain a clear formulation of the goal of the study together with the main research question(s) addressed. The introduction is to prepare the reader for comprehending the material of the subsequent sections.
+
+The rest of this section provides a general guidance for the preparation of a thesis.
+
+\section{Format}
+Do not abbreviate text: write “do not” but not “don’t”, and write “is not”, but not “isn't”, etc. Use only double quotation marks when quoting text. As a general rule, avoid personalization: do not use “I,” “you,” “we,” “he,” etc. Use appropriate passive voice constructions instead.
+
+\section{Structure}
+Typically, a thesis has the following structure (of course, the section titles may differ): Introduction, Literature Review (or Background; can be part of Introduction), Content Sections (Model/Design Proposed, Methods Used, etc.), Case studies or Experiments (if any), Analysis (or Discussion), Conclusions (sometimes including Future Work), Acknowledgements (if any), References, Appendices (if any). Each main section (except Acknowledgements) should, as a rule, be longer than one paragraph of text.
+
+A thesis has, therefore, the following logic flow: A problem definition; What other people did to solve the problem; Why (as the author believes) it still has no satisfactory solution; The proposed (original/non-trivial) idea (concept, design, etc.); An implementation (e.g. prototype, simulation, etc.) of the idea; A validation procedure (experiments) for the idea, and validation results (unlike, for example, literature and philosophy, engineering and natural sciences require every proposed idea to be validated, to some extent. It is, therefore, not enough merely to propose an idea; the idea must be validated); Discussion of the (experimental) results followed by a discussion of the whole idea in a context of the related studies; Conclusions with a clear formulation of the main contribution (as the author sees it) of the work (one contribution is usually enough). Conclusions must be connected with the study’s goal formulated in the introduction section.
+
+\section{Illustrations}
+All tables, figures, and other illustrations must have informative captions. The captions, however, must be in addition to (and must not be considered as a replacement of) relevant descriptions of the illustrations in the main text. Refer to one illustration as, for example, “…see Figure 1,” “…listed in Table 1,” etc., and to several illustrations as “…see figures 1-2,” “…as detailed in tables 1-3,” etc.
+
+No illustration can span over two or more pages; every figure and every table must be contained within one page (i.e. never use more than one page for one single illustration). When necessary, consider breaking one large figure (table) into two or more smaller ones. The figures (especially those prepared with MS Excel) do not need framing. All illustrations used in the thesis (especially, the figures) must be reproducible with a black-and-white printer. Note that many colors appear the same when emulated by the printer with gray tones. Also, pay particular attention to text imposed on graphics and the figure legends: all text throughout the thesis must be English text, not Japanese, Russian, or any other non-English text.
+
+\section{Figures}
+Figures should be prepared carefully and should have a resolution of at least 300dpi. Place figures at the top or bottom of a page whenever possible, as close as possible to the first reference to them in the main text. Make sure that all figures are not too large but not too small either. Scale all your illustrations consistently. Do not frame figures unless absolutely necessary. All figures included must be referred to in the main text. Place figure captions immediately after the figures (see Figure~\ref{fig_1} for an example).
+
+%learn about the different figure positions online (https://www.overleaf.com/learn/latex/Positioning_of_Figures)
+%multiple ways to define the width (can be mm, cm, inches, partially or fully textwidth, scale the original image etc.)
+\begin{figure}[h]
+    \centering
+	\includegraphics[width=0.5\textwidth]{fig.png}
+	%use labels to make your life easier
+	\caption{Caption of figure (left-aligned, no full stop in the end)} 
+	\label{fig_1}
+\end{figure}
+
+\section{Tables}
+Place tables at the top or bottom of pages whenever possible, as close as possible to the first reference to them in the main text. The caption of a table should be left-aligned subsequent text indented (e.g. see Table~\ref{tab_1}). All tables included must be referred to and described in the main text.
+%Tables can be tricky, but you can make them online, then further edit them locally., for example https://www.tablesgenerator.com/
+%You can position them the same way as figures
+\begin{table}[h]
+\caption{Caption of table (note the full stop in the end).} 
+	\label{tab_1}
+\begin{tabular}{llllll}
+\hline
+\textit{Exam}     & \textbf{Student 1} & \textbf{Student 2} & \textbf{Student 3} & \textbf{Student 4} & \textbf{Student 5} \\ \hline
+\textit{Mid-term} & 100                & 90                 & 70                 & 75                 & 0                  \\
+\textit{Final}    & 100                & 100                & 60                 & 95                 & 50                 \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Equations}
+Equations, which are repeatedly referred to in the text, must be centered and numbered consecutively, as in the following example:
+\begin{equation}
+    A+B=C,
+\end{equation}
+where $A$, $B$, $C$ are some constants. Note that each equation number in the example above must be placed at the very end of the line, with one empty line preceding the equation, and one empty line immediately following it. Also note that all notations used must be clearly defined before or immediately after the equations (e.g. see Equation (1)). In certain cases, a separate (non-numbered) section called “Notations” can be created to list and explain all the notations used throughout the thesis. Such a section can be placed before the “Introduction” section. Other equations can be formatted as in-line equations (with no specific numbers assigned), e.g. $D+E=F$, where $D$, $E$, and $F$ are some coefficients. 
+
+\section{Citations and references}
+Referring to related work is extremely important for the thesis. Appropriate citations included in the text serve to: \textit{a)} provide a broader context for the reader, and \textit{b)} demonstrate the author’s expertise in the field. Keep in mind that theses with few (less than 15) citations may not be acceptable. Do not cite a newspaper, a private website, Wikipedia, blogs, textbooks, reference books, and the like.
+
+Citations must be noted using numbers enclosed in square brackets, before any punctuation, with a space before the bracket. Citations must be numbered sequentially in the order of appearance. Do not write “in reference \cite{pennington2014glove}”, write instead “in \cite{pennington2014glove}”. Examples with single and multiple references:
+
+“... by concatenating the outputs of the last four layers, as suggested in \cite{pennington2014glove}.” “... to classify reviews into two or more distinct groups \cite{pennington2014glove, nadeau2003inference}.”
+
+“... in \cite{pennington2014glove, nadeau2003inference, pluto}.”
+
+When using LaTeX, follow the IEEE Transactions BibTeX referencing style (called \textit{ieeetr}) for the numbered list of references. Use the “article” class for journal articles:
+\begin{spverbatim}
+@article{nadeau2003inference,
+  title={Inference for the generalization error},
+  author={Nadeau, Claude and Bengio, Yoshua},
+  journal={Machine learning},
+  volume={52},
+  number={3},
+  pages={239--281},
+  year={2003},
+  publisher={Springer}
+}
+\end{spverbatim}
+\noindent Use the ”inproceedings” class for conference proceedings:
+\begin{spverbatim}
+  @inproceedings{pennington2014glove,
+  title={Glove: Global vectors for word representation},
+  author={Pennington, Jeffrey and Socher, Richard and Manning, Christopher D},
+  booktitle={Proceedings of the 2014 conference on empirical methods in natural language processing (EMNLP)},
+  pages={1532--1543},
+  year={2014}
+}
+\end{spverbatim}
+
+\bigskip
+If additional classes and fields are required, or when using MS Word, follow the formatting instructions and examples posted at:
+
+\noindent https://www.bibtex.com/s/bibliography-style-base-ieeetr/
+
+\chapter{Content sections}
+These sections (usually, more than one) should describe the approach proposed by the author to achieve the study’s goal.
+
+\chapter{Case study}
+This section should provide data, examples, simulations, and experiments that can support the study’s idea. It should include figures and tables to better illustrate the work done.
+
+\chapter{Results}
+This section should present the study’s main findings.
+
+\chapter{Discussion}
+This section is to provide a discussion about the main findings, the importance and limitations of the study.
+
+\chapter{Conclusions}
+This section should include a summary of the study.
+
+\bibliographystyle{ieeetr}
+\bibliography{bibl}
+%add the references chapter to the toc, without numbering
+\addcontentsline{toc}{chapter}{References}
+
+\begin{appendices}
+%next command is to remove the letters before "Appendix". Delete the command if needed
+\setcounter{secnumdepth}{-1}
+\chapter{Appendices}
+This part is optional. It may include derivations of equations, algorithms, and code too lengthy to be placed in the main text.
+\end{appendices}
+
+\end{document}

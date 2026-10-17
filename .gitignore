@@ -1,0 +1,31 @@
+# Environments and editor state
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+.DS_Store
+__MACOSX/
+.env
+.env.*
+!.env.example
+# Models, datasets and generated outputs
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.onnx
+*.bin
+*.exe
+*.zip
+model_zoo/
+ILSVRC/
+aligned_data/
+saved/
+saved2/
+runs/
+server_cache/
+cache/
+*.wav
+*.mp3

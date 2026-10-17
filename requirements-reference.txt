@@ -1,0 +1,18 @@
+# Inferred dependency inventory; not a validated or pinned environment.
+Flask
+numpy
+Pillow
+opencv-python
+torch
+torchvision
+transformers
+accelerate
+qwen-vl-utils
+openai-whisper
+PyQt5
+PyAudio
+requests
+gTTS
+tqdm
+matplotlib
+tensorboardX
